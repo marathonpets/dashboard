@@ -13,7 +13,9 @@ const ConnectCard = () => {
             </div>
             <div className="wheel-register">
                 <p>Enter the number listed on the back of you wheel</p>
-                <Input type='text' label="wheel-number"></Input>
+                <Row>
+                    <Input type='text' label="wheel-number"></Input>
+                </Row>
             </div>
         </div>
     )

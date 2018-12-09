@@ -1,19 +1,25 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { handleButtonClick } from '../actions/app'
+import Link from '../../components/link-dashboard';
+import { signInUser } from '../actions/link-actions'
 // import { hasSignedIn } from '../selectors';
 
-const mapStateToProps = (state, props) => {
-    const { uid } = props;
+const mapStateToProps = (state) => {
+    // const { uid } = props;
 
     return {
-        uid,
+        link: state.link.users
         // hasSignedIn: hasSignedIn(state)
     };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return bindActionCreators({
-        // handleClick: (someProp) => handleButtonClick(someProp)
+        signInUser
     }, dispatch);
 };
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Link);

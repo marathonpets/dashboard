@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/nav-layout/navbar';
-import { Link } from './components/link-dashboard';
+// import Link from './components/link-dashboard';
+import Link from './store/containers/link';
+import Dashboard from './store/containers/dashboard';
 import SignInCard from './components/link-cards/signin-card';
 import SignUpCard from './components/link-cards/signup-card';
 import ConnectCard from './components/link-cards/connect-card';
-import Dashboard from './components/dashboard';
 
 class App extends Component {
 	render() {
