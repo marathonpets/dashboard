@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
-import Link from '../../components/link-dashboard';
+import Dashboard from '../../components/dashboard';
 // import { handleButtonClick } from '../actions/app'
 // import { hasSignedIn } from '../selectors';
 
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps
-)(Link);
+)(Dashboard);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import firebase from 'firebase/app';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { initFirebase, showSection } from './config/fbConfig';
 import Navbar from './components/nav-layout/navbar';
 // import Link from './components/link-dashboard';
 import Link from './store/containers/link';
@@ -9,6 +11,17 @@ import SignUpCard from './components/link-cards/signup-card';
 import ConnectCard from './components/link-cards/connect-card';
 
 class App extends Component {
+	constructor(props) {
+		super(props)
+		// if (!firebase.apps.length) {
+			initFirebase();
+		// }
+	}
+
+	componentDidMount () {
+		showSection();
+	}
+
 	render() {
 		return (
 			<BrowserRouter>
