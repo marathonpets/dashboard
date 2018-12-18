@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const SignedInLinks = () => {
+const SignedInLinks = (props) => {
     return (
         <ul className="right">
-            <li><NavLink to="/signin">Log In</NavLink></li>
-            <li><NavLink to="/signup">Sign Up</NavLink></li>
-            <li><NavLink to="/" className="btn btn-floating pink lighten-1">BF</NavLink></li>
+            <li><NavLink to={'/dashboard/' + props.username }>Dashboard</NavLink></li>
+            <li><button className="clean-button" onClick={props.logOutUser}>Log Out</button></li>
+            <li><NavLink to="/account" className="btn btn-floating pink lighten-1">BF</NavLink></li>
         </ul>
     )
 }

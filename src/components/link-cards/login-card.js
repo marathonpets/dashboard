@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Row, Input } from 'react-materialize';
 
-class SignInCard extends Component {
+class LogInCard extends Component {
   state = {
     email: '',
     password: ''
   }
+
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
@@ -13,7 +14,9 @@ class SignInCard extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.logInUser(this.state);
+
+    console.log('login card submit', this.state);
   }
   
   render() {
@@ -31,7 +34,7 @@ class SignInCard extends Component {
 					</Row>
           <div className="row right link-buttons">
             <div className="input-field">
-                <button className="btn pink lighten-1 z-depth-0">Login</button>
+                <button className="btn pink lighten-1 z-depth-0" onClick={e => this.handleSubmit(e)}>Login</button>
             </div>
           </div>
         </form>
@@ -40,4 +43,4 @@ class SignInCard extends Component {
   }
 }
 
-export default SignInCard;
+export default LogInCard;

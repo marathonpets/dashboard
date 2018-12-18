@@ -1,38 +1,32 @@
 import React, { Component } from 'react';
-import firebase from 'firebase/app';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { initFirebase, showSection } from './config/fbConfig';
+// import { initFirebase } from './config/fbConfig';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import C from './constants';
 import Navbar from './components/nav-layout/navbar';
 // import Link from './components/link-dashboard';
 import Link from './store/containers/link';
+import FrontPage from './components/dashboard/front-page';
 import Dashboard from './store/containers/dashboard';
-import SignInCard from './components/link-cards/signin-card';
-import SignUpCard from './components/link-cards/signup-card';
-import ConnectCard from './components/link-cards/connect-card';
+import LogInCard from './store/containers/login-card';
+import SignUpCard from './store/containers/signup-card';
+import ConnectCard from './store/containers/connect-card';
+import Account from './store/containers/account';
 
 class App extends Component {
-	constructor(props) {
-		super(props)
-		// if (!firebase.apps.length) {
-			initFirebase();
-		// }
-	}
-
-	componentDidMount () {
-		showSection();
-	}
-
 	render() {
 		return (
 			<BrowserRouter>
 				<div className='App'>
 					<Navbar />
 					<Switch>
-         				<Route exact path="/" component={Dashboard} />
+         				<Route exact path="/" component={FrontPage} />
          				<Route path="/link" component={Link} />
-         				<Route path="/signin" component={SignInCard} />
+         				<Route path="/login" component={LogInCard} />
          				<Route path="/signup" component={SignUpCard} />
          				<Route path="/connect" component={ConnectCard} />
+         				<Route path="/account" component={Account} />
          				<Route path="/dashboard/:id" component={Dashboard} />
 					</Switch>
 				</div>

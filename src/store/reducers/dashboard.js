@@ -1,15 +1,17 @@
-// import { CURRENT_STEP, SOMETHING_ELSE } from '../../constants';
+import C from '../../constants';
 
 export default (state = {}, action) => {
     switch (action.type) {
-        // case CURRENT_STEP:
-        //     return {
-
-        //     }   
-        // case SOMETHING_ELSE:
-        //     return {
-        //         ...state
-        //     }
+        case C.CURRENT_STATS:
+            return {
+                currentStats: action.result,
+                ...state
+            }
+        case C.TRIP_STATS:
+            return {
+                tripStats: action.result,
+                ...state
+            }
         default:
             return state;
     }

@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux';
-import SignInCard from '../link-cards/signin-card'
-import SignUpCard from '../link-cards/signup-card'
-import ConnectCard from '../link-cards/connect-card'
+import LogInCard from '../../store/containers/login-card'
+import SignUpCard from '../../store/containers/signup-card'
+import ConnectCard from '../../store/containers/connect-card'
 
 class Link extends Component {
     render () {
         console.log('link dashboard', this.props);
-        console.log('link actions', this.props.signInUser);
+        // console.log('link actions', this.props.signInUser);
         return (
             <div className="card-dashboard container">
                 <div className="row">
                     <div className="card-container ">
-                        {/* <SignInCard /> */}
-                        <ConnectCard />
+                        <LogInCard />
+                        {/* <ConnectCard /> */}
                     </div>
                 </div>
             </div>
