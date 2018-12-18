@@ -28,6 +28,7 @@ class App extends Component {
          				<Route path="/connect" component={ConnectCard} />
          				<Route path="/account" component={Account} />
          				<Route path="/dashboard/:id" component={Dashboard} />
+         				<Route path="/dashboard" component={FrontPage} />
 					</Switch>
 				</div>
 			</BrowserRouter>

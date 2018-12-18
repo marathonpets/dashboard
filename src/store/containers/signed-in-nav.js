@@ -5,8 +5,7 @@ import { logOutUser } from '../actions/link-actions'
 import { getUserName } from '../selectors';
 
 const mapStateToProps = (state) => {
-    // const { uid } = props;
-    console.log('state', state);
+    console.log('state', state, getUserName(state));
     return {
         username: getUserName(state)
     };

@@ -27,11 +27,12 @@ export const stateChangeListener = (store) => {
     const { dispatch } = store;
     console.log('stateChangeListener', dispatch);
     firebase.auth().onAuthStateChanged(firebaseUser => {
-        console.log('firebaseUser', firebaseUser);
+        console.log('auth changed');
         if (firebaseUser) {
             const email = firebase.auth().currentUser.email;
             const username = firebase.auth().currentUser.displayName;
             console.log(`success: your logged in as ${email}`);
+            console.log('firebaseUser', firebaseUser);
             dispatch({
                 type: C.AUTH_CHANGED,
                 result: firebaseUser
@@ -39,7 +40,7 @@ export const stateChangeListener = (store) => {
             // console.log('fetch profile');
             // fetchUserProfile(username);
             firebase.database().ref('profiles/' + username).once('value', (snap) => {
-                console.log('fetchUserProfile', snap.val())
+                console.log('fetchUserProfile', snap.val());
                 dispatch({
                     type: C.UPDATE_PROFILE,
                     result: snap.val()
@@ -49,8 +50,12 @@ export const stateChangeListener = (store) => {
             console.log('user NOT signed in')
             dispatch({
                 type: C.AUTH_CHANGED,
-                result: ''
+                result: {}
             });
+            dispatch({
+                type: C.UPDATE_PROFILE,
+                result: {}
+            })  
         }
     });
 }

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3": "^5.7.0",
     "firebase": "^5.7.0",
+    "less": "^3.9.0",
     "lodash": "^4.17.11",
     "mirror-creator": "^1.1.0",
     "react": "^16.6.3",

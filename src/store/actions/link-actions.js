@@ -81,43 +81,10 @@ export const connectWheel = (credentials) => (dispatch, getState) => {
     profilesRef.child(user.displayName).update({'wheel_id': wheelId});
 }
 
-
-// export const authStateChanged = () => (dispatch, getState) => {
-//     const auth = firebase.auth();
-    
-//     auth.onAuthStateChanged(firebaseUser => {
-//         console.log(firebaseUser);
-//         if (firebaseUser) {
-//             const email = auth.currentUser.email;
-//             console.log('something else', dispatch);
-//             console.log(`success: your logged in as ${email}`);
-//             console.log('dispatch', dispatch);
-//             dispatch({
-//                 type: C.AUTH_CHANGED,
-//                 result: firebaseUser
-//             });
-            
-//         } else {
-//             console.log('user NOT signed in')
-//             dispatch({
-//                 type: C.AUTH_CHANGED,
-//                 result: ''
-//             });
-//         }
-//     });
-// }
-
-export const authChanged = (firebaseUser) => (dispatch, getState) => {
-    dispatch({
-        type: C.AUTH_CHANGED,
-        result: firebaseUser
-    });
-};
-
-
 export const logOutUser = (action) => (dispatch, getState) => {
     const auth = firebase.auth()
     auth.signOut();
+
     console.log('user signed out');
 }
 
@@ -133,5 +100,13 @@ export const resetPassword = (action) => (dispatch, getState) => {
         });
     }
 }
+
+export const authChanged = (firebaseUser) => (dispatch, getState) => {
+    console.log('authChanged', firebaseUser);
+    dispatch({
+        type: C.AUTH_CHANGED,
+        result: firebaseUser
+    });
+};
 
 export default logInUser;

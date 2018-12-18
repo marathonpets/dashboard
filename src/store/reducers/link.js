@@ -7,17 +7,17 @@ const initState = {
 }
 
 export default (state = initState, action) => {
-    console.log('link reducer', action.type);
+    console.log('link reducer', action.type, action.result);
     switch (action.type) {
         case C.AUTH_CHANGED:
             return {
+                ...state,
                 firebaseUserData: action.result,
-                ...state
             }
         case C.UPDATE_PROFILE:
             return {
+                ...state,
                 profileData: action.result,
-                ...state
             }
         default:
             return state;

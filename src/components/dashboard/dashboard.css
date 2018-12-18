@@ -1,0 +1,176 @@
+@import url('../../assets/css-reset.css');
+@font-face {
+  font-family: 'Ozone';
+  src: url('../../assets/fonts/ozone/Ozone.woff') format('woff'), url('../../assets/fonts/ozone/Ozone.ttf') format('truetype'), url('../../assets/fonts/ozone/Ozone.svg#Ozone') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../../assets/fonts/poppins/Poppins-Regular.woff2') format('woff2'), url('../../assets/fonts/poppins/Poppins-Regular.woff') format('woff'), url('../../assets/fonts/poppins/Poppins-Regular.ttf') format('truetype'), url('../../assets/fonts/poppins/Poppins-Regular.svg#Poppins') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('../../assets/fonts/poppins/Poppins-Bold.woff2') format('woff2'), url('../../assets/fonts/poppins/Poppins-Bold.woff') format('woff'), url('../../assets/fonts/poppins/Poppins-Bold.ttf') format('truetype'), url('../../assets/fonts/poppins/Poppins-Bold.svg#Poppins-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: url(../../assets/patterns/triangular-pattern.jpg);
+  background-repeat: repeat;
+}
+button.start-dash,
+button.stop-dash {
+  position: absolute;
+  top: 100px;
+  border: 1px solid black;
+  background-color: red;
+  color: white;
+}
+.start-dash {
+  left: 20px;
+}
+.stop-dash {
+  left: 140px;
+}
+.dashboard-body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 40px;
+}
+#db-readout {
+  font-size: 72px;
+  font-family: 'Ozone', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: absolute;
+  top: 105px;
+  padding-left: 10px;
+  color: white;
+}
+.speedometer {
+  display: flex;
+  position: relative;
+  height: 300px;
+  width: 300px;
+  justify-content: center;
+  align-content: center;
+  margin: 40px auto 40px;
+}
+.mph {
+  font-size: 20px;
+  font-family: 'Ozone', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: absolute;
+  top: 185px;
+  color: white;
+}
+.odometer {
+  font-size: 20px;
+  font-family: 'Ozone', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  position: absolute;
+  top: 264px;
+  color: white;
+}
+.block {
+  width: 500px;
+  height: 5px;
+  background-color: red;
+  position: absolute;
+  top: 272px;
+  opacity: .7;
+}
+.arc-background {
+  background-image: url('../../assets/bg-speedometer.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+.arc-group > path:first-of-type {
+  fill: transparent !important;
+}
+path {
+  fill: red;
+}
+.scoreboard {
+  background-color: #e6e6e8;
+  width: 95%;
+  max-width: 700px;
+  min-width: 305px;
+  margin: auto;
+  display: flex;
+}
+.day-logs,
+.trip-logs {
+  width: 50%;
+  margin: 10px;
+  font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.day-logs .section-title,
+.trip-logs .section-title {
+  font-family: 'Poppins', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+.day-logs .stat-title,
+.trip-logs .stat-title {
+  font-family: 'Poppins Bold', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 12px;
+  padding-bottom: 5px;
+  color: #d3d3d3;
+}
+.day-logs .log-container,
+.trip-logs .log-container {
+  color: white;
+  background-color: #212e4e;
+  border-radius: 5px;
+}
+.stat-section {
+  padding: 1rem .7rem;
+  border-bottom: 1px solid #172036;
+}
+.stat-section:last-child {
+  border-bottom: none;
+}
+.stat-section .value {
+  font-family: 'Ozone', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 28px;
+}
+.stat-section .metric {
+  text-transform: uppercase;
+  font-size: 9px;
+  color: #d3d3d3;
+}
+@media all and (min-width: 420px) {
+  .day-logs .stat-title,
+  .trip-logs .stat-title {
+    font-size: 14px;
+  }
+  .stat-section .value {
+    font-size: 42px;
+  }
+}
+@media all and (min-width: 568px) {
+  .scoreboard {
+    width: 80%;
+  }
+}
+@media all and (min-width: 768px) {
+  .day-logs .stat-title,
+  .trip-logs .stat-title {
+    font-size: 18px;
+  }
+  .stat-section .value {
+    font-size: 48px;
+  }
+  .stat-section .metric {
+    font-size: 11px;
+  }
+}
